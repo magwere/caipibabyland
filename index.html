@@ -52,33 +52,99 @@
 
         /* Animaciones */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
 
         @keyframes float-delayed {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(-5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-5deg);
+            }
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 157, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 107, 157, 0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);
+            }
         }
 
         @keyframes bounce-soft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes morphBlob {
-            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+
+            0%,
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(0) translateZ(0) scaleY(1);
+            }
+
+            50% {
+                transform: translateX(-25%) translateZ(0) scaleY(0.8);
+            }
+
+            100% {
+                transform: translateX(-50%) translateZ(0) scaleY(1);
+            }
         }
 
         .animate-on-scroll {
@@ -192,6 +258,15 @@
             transition: all 0.3s ease !important;
         }
 
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -230,8 +305,75 @@
             animation: morphBlob 8s ease-in-out infinite;
         }
 
-        .blob-1 { width: 400px; height: 400px; background: var(--accent); top: -100px; right: -100px; }
-        .blob-2 { width: 300px; height: 300px; background: var(--secondary); bottom: -50px; left: -50px; }
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 2s;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent-warm);
+            top: 50%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-item:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-item:nth-child(2) {
+            top: 60%;
+            left: 5%;
+            animation-delay: 1s;
+        }
+
+        .float-item:nth-child(3) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .float-item:nth-child(4) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .float-item:nth-child(5) {
+            top: 15%;
+            left: 50%;
+            animation-delay: 1.5s;
+        }
 
         .hero-content {
             max-width: 1200px;
@@ -252,6 +394,7 @@
             color: var(--white);
             line-height: 1.1;
             margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .hero-text h1 span {
@@ -264,12 +407,20 @@
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .btn {
             padding: 15px 35px;
             border-radius: var(--radius-xl);
             font-weight: 700;
+            font-size: 1rem;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
@@ -277,10 +428,31 @@
             gap: 10px;
             border: none;
             cursor: pointer;
+            font-family: 'Nunito', sans-serif;
         }
 
-        .btn-primary { background: var(--white); color: var(--primary); }
-        .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255, 255, 255, 0.5); }
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
 
         .hero-stats {
             display: flex;
@@ -290,6 +462,24 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .hero-image-main {
             width: 100%;
             max-width: 500px;
@@ -297,60 +487,987 @@
             object-fit: cover;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
             animation: float 6s ease-in-out infinite;
+            border: 5px solid rgba(255, 255, 255, 0.3);
         }
 
+        .hero-image-decoration {
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: var(--gradient-secondary);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            opacity: 0.2;
+            z-index: 1;
+            animation: morphBlob 10s ease-in-out infinite;
+        }
+
+        .hero-badge {
+            position: absolute;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+            animation: float-delayed 5s ease-in-out infinite;
+        }
+
+        .badge-1 {
+            top: 10%;
+            right: 0;
+        }
+
+        .badge-2 {
+            bottom: 20%;
+            left: -20px;
+            animation-delay: 1s;
+        }
+
+        .badge-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .badge-text h4 {
+            font-size: 0.85rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .badge-text p {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* Wave Divider */
         .wave-divider {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
+            overflow: hidden;
             line-height: 0;
         }
 
-        .wave-divider .shape-fill { fill: var(--light); }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 120px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: var(--light);
+        }
 
         /* Secciones Generales */
-        section { padding: 100px 30px; position: relative; }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .section-tag { display: inline-block; background: var(--primary-light); color: var(--primary-dark); padding: 8px 20px; border-radius: var(--radius-xl); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 15px; }
-        .section-title { font-family: 'Quicksand', sans-serif; font-size: 2.8rem; font-weight: 800; color: var(--dark); margin-bottom: 15px; }
+        section {
+            padding: 100px 30px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+        }
 
         /* Servicios */
-        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px 30px; text-align: center; box-shadow: var(--shadow-soft); transition: 0.4s; }
-        .service-icon { width: 80px; height: 80px; margin: 0 auto 25px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--white); }
+        .services {
+            background: var(--light);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
 
         /* Galería */
-        .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 250px); gap: 15px; }
-        .gallery-item { border-radius: var(--radius-md); overflow: hidden; position: relative; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 0.85;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-row: span 2;
+        }
 
         /* Sobre Nosotros */
-        .about { background: var(--gradient-secondary); color: var(--white); }
-        .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-img-main { width: 100%; border-radius: var(--radius-lg); }
+        .about {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-img-float {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: var(--shadow-medium);
+            z-index: 3;
+        }
+
+        .about-img-float.img-1 {
+            top: -30px;
+            right: -30px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .about-img-float.img-2 {
+            bottom: -20px;
+            left: -20px;
+            animation: float-delayed 6s ease-in-out infinite;
+        }
+
+        .about-text .section-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .about-text .section-title {
+            color: var(--white);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .features-list i {
+            width: 35px;
+            height: 35px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
 
         /* Testimonios */
-        .testimonials-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .testimonial-card { background: var(--white); padding: 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            color: var(--primary-light);
+            line-height: 1;
+            margin-bottom: -20px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-light);
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
 
         /* Precios */
-        .pricing-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .pricing-card { background: var(--white); padding: 40px 30px; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-soft); }
-        .pricing-card.featured { background: var(--gradient-primary); color: var(--white); transform: scale(1.05); }
+        .pricing {
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pricing-card.featured {
+            background: var(--gradient-primary);
+            color: var(--white);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+            border: none;
+            z-index: 2;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 20px;
+            border-radius: var(--radius-xl);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.95rem;
+        }
+
+        .pricing-card.featured .pricing-features li {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+
+        .pricing-card.featured .pricing-features i {
+            color: var(--accent);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pricing-card.featured .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
 
         /* Contacto */
-        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-form { background: var(--white); padding: 50px; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
-        .form-group { margin-bottom: 20px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: var(--radius-sm); }
+        .contact {
+            background: var(--light);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .contact-info>p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .contact-item-text p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: var(--radius-sm);
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
 
         /* Footer */
-        .footer { background: var(--dark); color: var(--white); padding: 80px 30px 30px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 80px 30px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image-main {
+                max-width: 350px;
+                height: 350px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-images {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+                order: -1;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(5) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .navbar.scrolled .nav-links a {
+                color: var(--dark);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* Modal de imagen */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Fases: secciones de la segunda fase ocultas hasta desbloquear */
+        .phase-section {
+            display: none;
+        }
+
+        .phase-section.revealed {
+            display: block;
+            animation: fadeIn 0.8s ease both;
+        }
 
         /* NUEVA SECCIÓN DE NOTA PROFESIONAL */
         .proposal-note-section {
@@ -433,24 +1550,6 @@
             background: var(--secondary);
             color: var(--dark);
         }
-
-        /* WhatsApp Float */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 999; animation: pulse-glow 2s infinite; text-decoration: none; }
-
-        /* Modal */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 2000; align-items: center; justify-content: center; }
-        .modal.active { display: flex; }
-        .modal img { max-width: 90%; max-height: 90%; }
-
-        /* Ocultar fases */
-        .phase-section { display: none; }
-        .phase-section.revealed { display: block; animation: fadeIn 0.8s ease both; }
-
-        @media (max-width: 1024px) {
-            .hero-content, .about-container, .contact-container { grid-template-columns: 1fr; text-align: center; }
-            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
-            .footer-container { grid-template-columns: 1fr 1fr; }
-        }
     </style>
 </head>
 
@@ -483,27 +1582,74 @@
         <div class="hero-bg-shapes">
             <div class="blob blob-1"></div>
             <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
         </div>
+        <div class="floating-elements">
+            <div class="float-item">🧸</div>
+            <div class="float-item">🎈</div>
+            <div class="float-item">⭐</div>
+            <div class="float-item">🌈</div>
+            <div class="float-item">🦋</div>
+        </div>
+
         <div class="hero-content">
             <div class="hero-text animate-on-scroll">
                 <h1>Donde cada niño <br>es una <span>aventura</span> 🌟</h1>
-                <p class="subtitle">Guardería infantil con enfoque en desarrollo emocional, creatividad y aprendizaje lúdico.</p>
+                <p class="subtitle">Guardería infantil con enfoque en desarrollo emocional, creatividad y aprendizaje
+                    lúdico. Un hogar lejos del hogar para tus pequeños.</p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agenda una Visita</a>
-                    <a href="#servicios" class="btn btn-secondary">Conoce Más</a>
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Agenda una Visita
+                    </a>
+                    <a href="#servicios" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Conoce Más
+                    </a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat-item"><h3>15+</h3><p>Años</p></div>
-                    <div class="stat-item"><h3>500+</h3><p>Niños</p></div>
-                    <div class="stat-item"><h3>20+</h3><p>Expertos</p></div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Pequeños Felices</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>Educadores Expertos</p>
+                    </div>
                 </div>
             </div>
             <div class="hero-image animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop" class="hero-image-main">
+                <div class="hero-image-decoration"></div>
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop"
+                    alt="Niño feliz en guardería" class="hero-image-main">
+                <div class="hero-badge badge-1">
+                    <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="badge-text">
+                        <h4>100% Seguro</h4>
+                        <p>Instalaciones certificadas</p>
+                    </div>
+                </div>
+                <div class="hero-badge badge-2">
+                    <div class="badge-icon"><i class="fas fa-heart"></i></div>
+                    <div class="badge-text">
+                        <h4>Amor y Cuidado</h4>
+                        <p>Atención personalizada</p>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg>
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
         </div>
     </section>
 
@@ -512,24 +1658,83 @@
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Nuestros Servicios</span>
             <h2 class="section-title">Todo lo que tu pequeño necesita</h2>
+            <p class="section-subtitle">Ofrecemos un ambiente seguro, estimulante y lleno de amor para el desarrollo
+                integral de cada niño.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-baby"></i></div><h3>Cuidado Infantil</h3><p>Atención personalizada las 24 horas con personal capacitado.</p></div>
-            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-book-reader"></i></div><h3>Educación Temprana</h3><p>Programa educativo basado en juego y descubrimiento.</p></div>
-            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>Arte y Creatividad</h3><p>Talleres de pintura, música y expresión artística.</p></div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-baby"></i></div>
+                <h3>Cuidado Infantil</h3>
+                <p>Atención personalizada las 24 horas con personal capacitado en primeros auxilios y estimulación
+                    temprana.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-book-reader"></i></div>
+                <h3>Educación Temprana</h3>
+                <p>Programa educativo basado en juego y descubrimiento que fomenta la curiosidad natural de los niños.
+                </p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-palette"></i></div>
+                <h3>Arte y Creatividad</h3>
+                <p>Talleres de pintura, música, danza y manualidades para desarrollar la expresión artística.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-running"></i></div>
+                <h3>Actividades Físicas</h3>
+                <p>Psicomotricidad, yoga infantil y juegos al aire libre para un desarrollo motor saludable.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-apple-alt"></i></div>
+                <h3>Nutrición Balanceada</h3>
+                <p>Menús preparados por nutricionistas con ingredientes frescos y orgánicos adaptados a cada edad.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon"><i class="fas fa-language"></i></div>
+                <h3>Inmersión Bilingüe</h3>
+                <p>Actividades en español e inglés desde temprana edad para un desarrollo lingüístico natural.</p>
+            </div>
         </div>
     </section>
 
     <!-- Galería -->
     <section class="gallery phase-section" id="galeria">
         <div class="section-header animate-on-scroll">
-            <span class="section-tag">Gelería</span>
+            <span class="section-tag">Nuestra Galería</span>
             <h2 class="section-title">Momentos de alegría</h2>
+            <p class="section-subtitle">Un vistazo a las actividades y sonrisas que compartimos cada día.</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item animate-on-scroll" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=800&fit=crop"></div>
-            <div class="gallery-item animate-on-scroll" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&h=400&fit=crop"></div>
-            <div class="gallery-item animate-on-scroll" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop"></div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=800&fit=crop"
+                    alt="Niños jugando">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&h=400&fit=crop"
+                    alt="Actividad artística">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop"
+                    alt="Lectura infantil">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&h=400&fit=crop"
+                    alt="Diversión al aire libre">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=800&fit=crop"
+                    alt="Bebé feliz">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
+                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&h=400&fit=crop"
+                    alt="Pintura">
+                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+            </div>
         </div>
     </section>
 
@@ -537,12 +1742,26 @@
     <section class="about phase-section" id="nosotros">
         <div class="about-container">
             <div class="about-images animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=500&fit=crop" class="about-img-main">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=500&fit=crop"
+                    alt="Niños en clase" class="about-img-main">
+                <img src="https://images.unsplash.com/photo-1596908181055-35fecd845c3b?w=400&h=400&fit=crop"
+                    alt="Actividad grupal" class="about-img-float img-1">
+                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop" alt="Lectura"
+                    class="about-img-float img-2">
             </div>
             <div class="about-text animate-on-scroll">
                 <span class="section-tag">Sobre Nosotros</span>
-                <h2 class="section-title">Un lugar donde los sueños cobran vida</h2>
-                <p>En Caipi Babyland creemos que cada niño es único y merece un ambiente donde pueda crecer y explorar todo su potencial.</p>
+                <h2 class="section-title">Un lugar donde los sueños de los pequeños cobran vida</h2>
+                <p>En Caipi Babyland creemos que cada niño es único y merece un ambiente donde pueda crecer, explorar y
+                    desarrollar todo su potencial. Desde 2009, hemos sido el segundo hogar para cientos de familias.</p>
+                <p>Nuestro equipo de educadores certificados está dedicado a proporcionar atención personalizada,
+                    fomentando el amor por el aprendizaje desde los primeros años de vida.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Instalaciones seguras y homologadas</li>
+                    <li><i class="fas fa-check"></i> Ratio educador-niño 1:5</li>
+                    <li><i class="fas fa-check"></i> Programa educativo personalizado</li>
+                    <li><i class="fas fa-check"></i> Comunicación diaria con padres</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -552,11 +1771,59 @@
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Testimonios</span>
             <h2 class="section-title">Lo que dicen las familias</h2>
+            <p class="section-subtitle">La confianza de los padres es nuestro mayor orgullo.</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card animate-on-scroll">
-                <p>"El equipo de Caipi Babyland es excepcional, siempre atentos y cariñosos."</p>
-                <h4>María González</h4>
+                <div class="testimonial-quote">"</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">Mi hija llegó tímida y en pocas semanas se transformó en una niña segura y
+                    feliz. El equipo de Caipi Babyland es excepcional, siempre atentos y cariñosos.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                        alt="María G." class="author-avatar">
+                    <div class="author-info">
+                        <h4>María González</h4>
+                        <p>Mamá de Sofía, 3 años</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">"</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">Como padre primerizo, tenía muchas dudas. El equipo me dio tranquilidad
+                    desde el primer día. Las actualizaciones diarias con fotos son un detalle que valoro muchísimo.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+                        alt="Carlos R." class="author-avatar">
+                    <div class="author-info">
+                        <h4>Carlos Rodríguez</h4>
+                        <p>Papá de Mateo, 1 año</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">"</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">La nutrición y las actividades educativas son impecables. Mi hijo aprende
+                    inglés sin darse cuenta mientras juega. ¡Totalmente recomendado!</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+                        alt="Ana P." class="author-avatar">
+                    <div class="author-info">
+                        <h4>Ana Patricia López</h4>
+                        <p>Mamá de Lucas, 4 años</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -564,13 +1831,48 @@
     <!-- Precios -->
     <section class="pricing phase-section" id="precios">
         <div class="section-header animate-on-scroll">
-            <span class="section-tag">Planes</span>
+            <span class="section-tag">Planes y Precios</span>
             <h2 class="section-title">Inversión en su futuro</h2>
+            <p class="section-subtitle">Opciones flexibles que se adaptan a las necesidades de tu familia.</p>
         </div>
         <div class="pricing-grid">
-            <div class="pricing-card animate-on-scroll"><h3>Medio Tiempo</h3><div class="price">$350<span>/mes</span></div><a href="#contacto" class="btn btn-primary">Elegir</a></div>
-            <div class="pricing-card featured animate-on-scroll"><h3>Completo</h3><div class="price">$550<span>/mes</span></div><a href="#contacto" class="btn btn-primary">Elegir</a></div>
-            <div class="pricing-card animate-on-scroll"><h3>Flex</h3><div class="price">$25<span>/día</span></div><a href="#contacto" class="btn btn-primary">Elegir</a></div>
+            <div class="pricing-card animate-on-scroll">
+                <h3>Medio Tiempo</h3>
+                <div class="price">$350<span>/mes</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 5 horas diarias</li>
+                    <li><i class="fas fa-check"></i> Almuerzo incluido</li>
+                    <li><i class="fas fa-check"></i> Actividades básicas</li>
+                    <li><i class="fas fa-check"></i> Reporte semanal</li>
+                    <li><i class="fas fa-check"></i> 1 salida mensual</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary">Elegir Plan</a>
+            </div>
+            <div class="pricing-card featured animate-on-scroll">
+                <div class="pricing-badge">Más Popular</div>
+                <h3>Tiempo Completo</h3>
+                <div class="price">$550<span>/mes</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Horario extendido</li>
+                    <li><i class="fas fa-check"></i> 3 comidas + snack</li>
+                    <li><i class="fas fa-check"></i> Programa educativo full</li>
+                    <li><i class="fas fa-check"></i> App móvil en tiempo real</li>
+                    <li><i class="fas fa-check"></i> Talleres especiales</li>
+                    <li><i class="fas fa-check"></i> 2 salidas mensuales</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary">Elegir Plan</a>
+            </div>
+            <div class="pricing-card animate-on-scroll">
+                <h3>Flex</h3>
+                <div class="price">$25<span>/día</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> Pago por día</li>
+                    <li><i class="fas fa-check"></i> Sin contrato</li>
+                    <li><i class="fas fa-check"></i> Comida opcional</li>
+                    <li><i class="fas fa-check"></i> Actividades incluidas</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary">Elegir Plan</a>
+            </div>
         </div>
     </section>
 
@@ -579,19 +1881,95 @@
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Contacto</span>
             <h2 class="section-title">¿Listo para comenzar?</h2>
+            <p class="section-subtitle">Agenda una visita guiada y conoce nuestras instalaciones sin compromiso.</p>
         </div>
         <div class="contact-container">
             <div class="contact-info animate-on-scroll">
-                <h3>Información</h3>
-                <p>Av. Principal #123, Ciudad</p>
-                <p>+507 6855-7713</p>
-                <p>info@caipibabyland.com</p>
+                <h3>Información de Contacto</h3>
+                <p>Estamos aquí para responder todas tus preguntas. Contáctanos por cualquier medio.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-item-text">
+                            <h4>Dirección</h4>
+                            <p>Av. Principal #123, Ciudad</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-item-text">
+                    <h4>Teléfono</h4>
+                    <p>+507 6855-7713</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-item-text">
+                    <h4>Teléfono Local</h4>
+                    <p>398-0401</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-item-text">
+                    <h4>Email</h4>
+                    <p>info@caipibabyland.com</p>
+                </div>
+            </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-item-text">
+                            <h4>Horario</h4>
+                            <p>Lun - Vie: 7:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="contact-form animate-on-scroll">
-                <form onsubmit="event.preventDefault(); alert('¡Gracias!');">
-                    <div class="form-group"><input type="text" placeholder="Tu nombre" required></div>
-                    <div class="form-group"><input type="tel" placeholder="Teléfono" required></div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+                <form onsubmit="event.preventDefault(); alert('¡Gracias! Te contactaremos pronto.');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre del Padre/Madre</label>
+                            <input type="text" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" placeholder="+507 6855-7713" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                            <input type="email" placeholder="info@caipibabyland.com" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Edad del Niño/a</label>
+                            <select required>
+                                <option value="">Selecciona...</option>
+                                <option>0 - 1 año</option>
+                                <option>1 - 2 años</option>
+                                <option>2 - 3 años</option>
+                                <option>3 - 5 años</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Plan de Interés</label>
+                            <select required>
+                                <option value="">Selecciona...</option>
+                                <option>Medio Tiempo</option>
+                                <option>Tiempo Completo</option>
+                                <option>Flex (Por Día)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje</label>
+                        <textarea placeholder="Cuéntanos sobre tus necesidades..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Solicitud
+                    </button>
                 </form>
             </div>
         </div>
@@ -602,12 +1980,16 @@
         <div class="proposal-card animate-on-scroll">
             <span class="section-tag">Nota de la Propuesta Técnica</span>
             <h2>Un modelo pensado para tu realidad</h2>
-            
-            <p>Este modelo está diseñado para cuando tu negocio ya ha <strong>escalado</strong> y logrado toda la <strong>implementación</strong>, permitiéndote ofrecer la mejor experiencia a las familias que confían en Caipi Babyland.</p>
-            
-            <p>Para cubrir la <strong>primera fase</strong>, se entregará una <strong>CTA de tres secciones</strong> que conecta con tus futuros clientes de forma clara y efectiva.</p>
-            
-            <p>Si aceptas la implementación de <strong>$670 dólares</strong>, incluiremos el <strong>geoposicionamiento</strong> para que las familias te encuentren fácilmente en el mapa.</p>
+
+            <p>Este modelo está diseñado para cuando tu negocio ya ha <strong>escalado</strong> y logrado toda la
+                <strong>implementación</strong>, permitiéndote ofrecer la mejor experiencia a las familias que confían en
+                Caipi Babyland.</p>
+
+            <p>Para cubrir la <strong>primera fase</strong>, se entregará una <strong>CTA de tres secciones</strong> que
+                conecta con tus futuros clientes de forma clara y efectiva.</p>
+
+            <p>Si aceptas la implementación de <strong>$670 dólares</strong>, incluiremos el
+                <strong>geoposicionamiento</strong> para que las familias te encuentren fácilmente en el mapa.</p>
 
             <div class="proposal-info-grid">
                 <div class="proposal-info-item"><i class="fas fa-envelope"></i> info@caipibabyland.com</div>
@@ -623,7 +2005,7 @@
                 <button class="btn btn-unlock" id="btnSegundaFase" onclick="mostrarSegundaFase()">
                     <i class="fas fa-layer-group"></i> Desbloquear Segunda Fase
                 </button>
-                
+
                 <a href="https://www.problemsolutionservices.com/contacto/#formulario" class="btn btn-return">
                     <i class="fas fa-arrow-left"></i> Regresar al Formulario
                 </a>
@@ -635,65 +2017,163 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <a href="#" class="logo"><div class="logo-icon">🍼</div><span>Caipi Babyland</span></a>
-                <p>Guardería infantil dedicada a crear un ambiente seguro y amoroso.</p>
+                <a href="#" class="logo">
+                    <div class="logo-icon">🍼</div>
+                    <span>Caipi Babyland</span>
+                </a>
+                <p>Guardería infantil dedicada a crear un ambiente seguro, amoroso y estimulante donde cada niño puede
+                    crecer feliz y desarrollar su máximo potencial.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/caipi_babyland/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
             <div class="footer-column">
-                <h4>Enlaces</h4>
-                <ul style="list-style: none;">
-                    <li><a href="#inicio" style="color: #aaa; text-decoration: none;">Inicio</a></li>
-                    <li><a href="#servicios" style="color: #aaa; text-decoration: none;">Servicios</a></li>
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                    <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                    <li><a href="#precios"><i class="fas fa-chevron-right"></i> Precios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cuidado Infantil</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Educación Temprana</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Talleres Artísticos</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Nutrición</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Términos de Servicio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Protocolo COVID</a></li>
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; color: #555;">
-            <p>© 2026 Caipi Babyland. Todos los derechos reservados.</p>
+        <div class="footer-bottom">
+            <p> 2026 Caipi Babyland. Todos los derechos reservados. Hecho con ❤️ para los pequeños.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/50768557713" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/50768557713" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
+    <!-- Modal -->
     <div class="modal" id="imageModal" onclick="closeModal()">
-        <img src="" id="modalImg">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <img src="" alt="Imagen ampliada" id="modalImg">
     </div>
 
     <script>
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
+        // Mobile menu toggle
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
 
+        // Modal functions
         function openModal(element) {
+            const img = element.querySelector('img');
             const modal = document.getElementById('imageModal');
-            document.getElementById('modalImg').src = element.querySelector('img').src;
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = img.src;
             modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('imageModal').classList.remove('active');
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
+        // Revelar segunda fase
         function mostrarSegundaFase() {
             document.querySelectorAll('.phase-section').forEach(sec => {
                 sec.classList.add('revealed');
                 sec.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
             });
-            document.getElementById('btnSegundaFase').style.display = 'none';
-            document.getElementById('notaHint').style.display = 'none';
+            const btn = document.getElementById('btnSegundaFase');
+            if (btn) { btn.style.display = 'none'; }
+            const hint = document.getElementById('notaHint');
+            if (hint) { hint.style.display = 'none'; }
         }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                if (target) {
+                    if (target.classList.contains('phase-section') && !target.classList.contains('revealed')) {
+                        mostrarSegundaFase();
+                        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+                    } else {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add loaded class for initial animations
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+                setTimeout(() => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                }, index * 100);
+            });
+        });
     </script>
 </body>
+
 </html>
