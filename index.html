@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caipi Babyland - Guardería Infantil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -20,9 +23,9 @@
             --white: #FFFFFF;
             --gradient-primary: linear-gradient(135deg, #FF6B9D 0%, #FF8E53 100%);
             --gradient-secondary: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
-            --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
-            --shadow-medium: 0 15px 50px rgba(0,0,0,0.12);
-            --shadow-glow: 0 0 40px rgba(255,107,157,0.3);
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 15px 50px rgba(0, 0, 0, 0.12);
+            --shadow-glow: 0 0 40px rgba(255, 107, 157, 0.3);
             --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 30px;
@@ -49,44 +52,99 @@
 
         /* Animaciones */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
 
         @keyframes float-delayed {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(-5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(-5deg);
+            }
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255,107,157,0.3); }
-            50% { box-shadow: 0 0 40px rgba(255,107,157,0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);
+            }
         }
 
         @keyframes bounce-soft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(60px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes morphBlob {
-            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+
+            0%,
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
         }
 
         @keyframes wave {
-            0% { transform: translateX(0) translateZ(0) scaleY(1); }
-            50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
-            100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+            0% {
+                transform: translateX(0) translateZ(0) scaleY(1);
+            }
+
+            50% {
+                transform: translateX(-25%) translateZ(0) scaleY(0.8);
+            }
+
+            100% {
+                transform: translateX(-50%) translateZ(0) scaleY(1);
+            }
         }
 
         .animate-on-scroll {
@@ -152,7 +210,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255,107,157,0.4);
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
         }
 
         .nav-links {
@@ -196,13 +254,13 @@
             color: var(--white) !important;
             padding: 10px 25px !important;
             border-radius: var(--radius-xl);
-            box-shadow: 0 4px 15px rgba(255,107,157,0.4);
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
             transition: all 0.3s ease !important;
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,107,157,0.5);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
         }
 
         .nav-cta::after {
@@ -287,11 +345,35 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .float-item:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .float-item:nth-child(2) { top: 60%; left: 5%; animation-delay: 1s; }
-        .float-item:nth-child(3) { top: 30%; right: 15%; animation-delay: 2s; }
-        .float-item:nth-child(4) { top: 70%; right: 10%; animation-delay: 3s; }
-        .float-item:nth-child(5) { top: 15%; left: 50%; animation-delay: 1.5s; }
+        .float-item:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-item:nth-child(2) {
+            top: 60%;
+            left: 5%;
+            animation-delay: 1s;
+        }
+
+        .float-item:nth-child(3) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .float-item:nth-child(4) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .float-item:nth-child(5) {
+            top: 15%;
+            left: 50%;
+            animation-delay: 1.5s;
+        }
 
         .hero-content {
             max-width: 1200px;
@@ -312,7 +394,7 @@
             color: var(--white);
             line-height: 1.1;
             margin-bottom: 20px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         .hero-text h1 span {
@@ -323,7 +405,7 @@
 
         .hero-text .subtitle {
             font-size: 1.25rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 30px;
             font-weight: 500;
         }
@@ -352,18 +434,18 @@
         .btn-primary {
             background: var(--white);
             color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .btn-secondary:hover {
@@ -377,7 +459,7 @@
             gap: 40px;
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .stat-item h3 {
@@ -387,7 +469,7 @@
         }
 
         .stat-item p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
         }
 
@@ -404,11 +486,11 @@
             height: 500px;
             object-fit: cover;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 2;
             animation: float 6s ease-in-out infinite;
-            border: 5px solid rgba(255,255,255,0.3);
+            border: 5px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero-image-decoration {
@@ -585,7 +667,7 @@
             justify-content: center;
             font-size: 2rem;
             color: var(--white);
-            box-shadow: 0 10px 30px rgba(255,107,157,0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
             transition: all 0.3s ease;
         }
 
@@ -665,9 +747,18 @@
             transform: scale(1);
         }
 
-        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-        .gallery-item:nth-child(4) { grid-column: span 2; }
-        .gallery-item:nth-child(5) { grid-row: span 2; }
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-row: span 2;
+        }
 
         /* Sobre Nosotros */
         .about {
@@ -684,7 +775,7 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
         }
 
@@ -735,7 +826,7 @@
         }
 
         .about-text .section-tag {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             color: var(--white);
         }
 
@@ -929,12 +1020,12 @@
 
         .pricing-features li {
             padding: 10px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             font-size: 0.95rem;
         }
 
         .pricing-card.featured .pricing-features li {
-            border-bottom-color: rgba(255,255,255,0.2);
+            border-bottom-color: rgba(255, 255, 255, 0.2);
         }
 
         .pricing-features li:last-child {
@@ -980,7 +1071,7 @@
             color: var(--dark);
         }
 
-        .contact-info > p {
+        .contact-info>p {
             color: #666;
             margin-bottom: 30px;
         }
@@ -1068,7 +1159,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(255,107,157,0.1);
+            box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.1);
         }
 
         .form-group textarea {
@@ -1104,7 +1195,7 @@
         }
 
         .footer-brand p {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -1117,7 +1208,7 @@
         .social-links a {
             width: 45px;
             height: 45px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1149,7 +1240,7 @@
         }
 
         .footer-column a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
@@ -1163,10 +1254,10 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 30px;
             text-align: center;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
 
@@ -1339,7 +1430,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -1354,7 +1445,7 @@
             max-width: 90%;
             max-height: 90%;
             border-radius: var(--radius-md);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .modal-close {
@@ -1367,8 +1458,19 @@
             background: none;
             border: none;
         }
+
+        /* Fases: secciones de la segunda fase ocultas hasta desbloquear */
+        .phase-section {
+            display: none;
+        }
+
+        .phase-section.revealed {
+            display: block;
+            animation: fadeIn 0.8s ease both;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Navegación -->
@@ -1407,11 +1509,12 @@
             <div class="float-item">🌈</div>
             <div class="float-item">🦋</div>
         </div>
-        
+
         <div class="hero-content">
             <div class="hero-text animate-on-scroll">
                 <h1>Donde cada niño <br>es una <span>aventura</span> 🌟</h1>
-                <p class="subtitle">Guardería infantil con enfoque en desarrollo emocional, creatividad y aprendizaje lúdico. Un hogar lejos del hogar para tus pequeños.</p>
+                <p class="subtitle">Guardería infantil con enfoque en desarrollo emocional, creatividad y aprendizaje
+                    lúdico. Un hogar lejos del hogar para tus pequeños.</p>
                 <div class="hero-buttons">
                     <a href="#contacto" class="btn btn-primary">
                         <i class="fas fa-calendar-check"></i>
@@ -1439,7 +1542,8 @@
             </div>
             <div class="hero-image animate-on-scroll">
                 <div class="hero-image-decoration"></div>
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop" alt="Niño feliz en guardería" class="hero-image-main">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop"
+                    alt="Niño feliz en guardería" class="hero-image-main">
                 <div class="hero-badge badge-1">
                     <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
                     <div class="badge-text">
@@ -1458,29 +1562,35 @@
         </div>
 
         <div class="wave-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
             </svg>
         </div>
     </section>
 
     <!-- Servicios -->
-    <section class="services" id="servicios">
+    <section class="services phase-section" id="servicios">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Nuestros Servicios</span>
             <h2 class="section-title">Todo lo que tu pequeño necesita</h2>
-            <p class="section-subtitle">Ofrecemos un ambiente seguro, estimulante y lleno de amor para el desarrollo integral de cada niño.</p>
+            <p class="section-subtitle">Ofrecemos un ambiente seguro, estimulante y lleno de amor para el desarrollo
+                integral de cada niño.</p>
         </div>
         <div class="services-grid">
             <div class="service-card animate-on-scroll">
                 <div class="service-icon"><i class="fas fa-baby"></i></div>
                 <h3>Cuidado Infantil</h3>
-                <p>Atención personalizada las 24 horas con personal capacitado en primeros auxilios y estimulación temprana.</p>
+                <p>Atención personalizada las 24 horas con personal capacitado en primeros auxilios y estimulación
+                    temprana.</p>
             </div>
             <div class="service-card animate-on-scroll">
                 <div class="service-icon"><i class="fas fa-book-reader"></i></div>
                 <h3>Educación Temprana</h3>
-                <p>Programa educativo basado en juego y descubrimiento que fomenta la curiosidad natural de los niños.</p>
+                <p>Programa educativo basado en juego y descubrimiento que fomenta la curiosidad natural de los niños.
+                </p>
             </div>
             <div class="service-card animate-on-scroll">
                 <div class="service-icon"><i class="fas fa-palette"></i></div>
@@ -1506,7 +1616,7 @@
     </section>
 
     <!-- Galería -->
-    <section class="gallery" id="galeria">
+    <section class="gallery phase-section" id="galeria">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Nuestra Galería</span>
             <h2 class="section-title">Momentos de alegría</h2>
@@ -1514,45 +1624,56 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=800&fit=crop" alt="Niños jugando">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&h=800&fit=crop"
+                    alt="Niños jugando">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&h=400&fit=crop" alt="Actividad artística">
+                <img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600&h=400&fit=crop"
+                    alt="Actividad artística">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop" alt="Lectura infantil">
+                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop"
+                    alt="Lectura infantil">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&h=400&fit=crop" alt="Diversión al aire libre">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&h=400&fit=crop"
+                    alt="Diversión al aire libre">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=800&fit=crop" alt="Bebé feliz">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=800&fit=crop"
+                    alt="Bebé feliz">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
             <div class="gallery-item animate-on-scroll" onclick="openModal(this)">
-                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&h=400&fit=crop" alt="Pintura">
+                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&h=400&fit=crop"
+                    alt="Pintura">
                 <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
             </div>
         </div>
     </section>
 
     <!-- Sobre Nosotros -->
-    <section class="about" id="nosotros">
+    <section class="about phase-section" id="nosotros">
         <div class="about-container">
             <div class="about-images animate-on-scroll">
-                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=500&fit=crop" alt="Niños en clase" class="about-img-main">
-                <img src="https://images.unsplash.com/photo-1596908181055-35fecd845c3b?w=400&h=400&fit=crop" alt="Actividad grupal" class="about-img-float img-1">
-                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop" alt="Lectura" class="about-img-float img-2">
+                <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=500&fit=crop"
+                    alt="Niños en clase" class="about-img-main">
+                <img src="https://images.unsplash.com/photo-1596908181055-35fecd845c3b?w=400&h=400&fit=crop"
+                    alt="Actividad grupal" class="about-img-float img-1">
+                <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop" alt="Lectura"
+                    class="about-img-float img-2">
             </div>
             <div class="about-text animate-on-scroll">
                 <span class="section-tag">Sobre Nosotros</span>
                 <h2 class="section-title">Un lugar donde los sueños de los pequeños cobran vida</h2>
-                <p>En Caipi Babyland creemos que cada niño es único y merece un ambiente donde pueda crecer, explorar y desarrollar todo su potencial. Desde 2009, hemos sido el segundo hogar para cientos de familias.</p>
-                <p>Nuestro equipo de educadores certificados está dedicado a proporcionar atención personalizada, fomentando el amor por el aprendizaje desde los primeros años de vida.</p>
+                <p>En Caipi Babyland creemos que cada niño es único y merece un ambiente donde pueda crecer, explorar y
+                    desarrollar todo su potencial. Desde 2009, hemos sido el segundo hogar para cientos de familias.</p>
+                <p>Nuestro equipo de educadores certificados está dedicado a proporcionar atención personalizada,
+                    fomentando el amor por el aprendizaje desde los primeros años de vida.</p>
                 <ul class="features-list">
                     <li><i class="fas fa-check"></i> Instalaciones seguras y homologadas</li>
                     <li><i class="fas fa-check"></i> Ratio educador-niño 1:5</li>
@@ -1564,7 +1685,7 @@
     </section>
 
     <!-- Testimonios -->
-    <section class="testimonials" id="testimonios">
+    <section class="testimonials phase-section" id="testimonios">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Testimonios</span>
             <h2 class="section-title">Lo que dicen las familias</h2>
@@ -1574,11 +1695,14 @@
             <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-quote">"</div>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <p class="testimonial-text">Mi hija llegó tímida y en pocas semanas se transformó en una niña segura y feliz. El equipo de Caipi Babyland es excepcional, siempre atentos y cariñosos.</p>
+                <p class="testimonial-text">Mi hija llegó tímida y en pocas semanas se transformó en una niña segura y
+                    feliz. El equipo de Caipi Babyland es excepcional, siempre atentos y cariñosos.</p>
                 <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="María G." class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                        alt="María G." class="author-avatar">
                     <div class="author-info">
                         <h4>María González</h4>
                         <p>Mamá de Sofía, 3 años</p>
@@ -1588,11 +1712,14 @@
             <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-quote">"</div>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <p class="testimonial-text">Como padre primerizo, tenía muchas dudas. El equipo me dio tranquilidad desde el primer día. Las actualizaciones diarias con fotos son un detalle que valoro muchísimo.</p>
+                <p class="testimonial-text">Como padre primerizo, tenía muchas dudas. El equipo me dio tranquilidad
+                    desde el primer día. Las actualizaciones diarias con fotos son un detalle que valoro muchísimo.</p>
                 <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Carlos R." class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+                        alt="Carlos R." class="author-avatar">
                     <div class="author-info">
                         <h4>Carlos Rodríguez</h4>
                         <p>Papá de Mateo, 1 año</p>
@@ -1602,11 +1729,14 @@
             <div class="testimonial-card animate-on-scroll">
                 <div class="testimonial-quote">"</div>
                 <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-                <p class="testimonial-text">La nutrición y las actividades educativas son impecables. Mi hijo aprende inglés sin darse cuenta mientras juega. ¡Totalmente recomendado!</p>
+                <p class="testimonial-text">La nutrición y las actividades educativas son impecables. Mi hijo aprende
+                    inglés sin darse cuenta mientras juega. ¡Totalmente recomendado!</p>
                 <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Ana P." class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+                        alt="Ana P." class="author-avatar">
                     <div class="author-info">
                         <h4>Ana Patricia López</h4>
                         <p>Mamá de Lucas, 4 años</p>
@@ -1617,7 +1747,7 @@
     </section>
 
     <!-- Precios -->
-    <section class="pricing" id="precios">
+    <section class="pricing phase-section" id="precios">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Planes y Precios</span>
             <h2 class="section-title">Inversión en su futuro</h2>
@@ -1665,7 +1795,7 @@
     </section>
 
     <!-- Contacto -->
-    <section class="contact" id="contacto">
+    <section class="contact phase-section" id="contacto">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Contacto</span>
             <h2 class="section-title">¿Listo para comenzar?</h2>
@@ -1685,18 +1815,25 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-item-text">
-                            <h4>Teléfono</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-item-text">
-                            <h4>Email</h4>
-                            <p>hola@caipibabyland.com</p>
-                        </div>
-                    </div>
+                <div class="contact-item-text">
+                    <h4>Teléfono</h4>
+                    <p>+507 6855-7713</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                <div class="contact-item-text">
+                    <h4>Teléfono Local</h4>
+                    <p>398-0401</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                <div class="contact-item-text">
+                    <h4>Email</h4>
+                    <p>info@caipibabyland.com</p>
+                </div>
+            </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-item-text">
@@ -1715,12 +1852,12 @@
                         </div>
                         <div class="form-group">
                             <label>Teléfono</label>
-                            <input type="tel" placeholder="+1 (555) 000-0000" required>
+                            <input type="tel" placeholder="+507 6855-7713" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" placeholder="correo@ejemplo.com" required>
+                            <input type="email" placeholder="info@caipibabyland.com" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -1756,6 +1893,42 @@
         </div>
     </section>
 
+    <!-- Nota Personal para la Prospecto -->
+    <section class="about" id="nota" style="background: var(--gradient-primary);">
+        <div class="about-container" style="grid-template-columns: 1fr;">
+            <div class="about-text animate-on-scroll" style="text-align: center;">
+                <span class="section-tag" style="background: rgba(255,255,255,0.25); color: var(--white);">Nota Personal
+                    para Ti</span>
+                <h2 class="section-title" style="color: var(--white);">Un modelo pensado para tu realidad</h2>
+                <p style="font-size: 1.15rem;">Este modelo está diseñado para cuando tu negocio ya ha <strong>escalado</strong>
+                    y logrado toda la <strong>implementación</strong>, permitiéndote ofrecer la mejor experiencia a las
+                    familias que confían en Caipi Babyland.</p>
+                <p style="font-size: 1.15rem;">Para cubrir la <strong>primera fase</strong>, se entregará una <strong>CTA
+                        de tres secciones</strong> que conecta con tus futuros clientes de forma clara y efectiva.</p>
+                <p style="font-size: 1.15rem;">Si aceptas la implementación de <strong>$670 dólares</strong>,
+                    incluiremos el <strong>geoposicionamiento</strong> para que las familias te encuentren fácilmente en
+                    el mapa.</p>
+                <p
+                    style="margin-top: 25px; font-weight: 700; font-size: 1.05rem; display: flex; gap: 25px; justify-content: center; flex-wrap: wrap;">
+                    <span><i class="fas fa-envelope"></i> info@caipibabyland.com</span>
+                    <span><i class="fas fa-phone-alt"></i> +507 6855-7713</span>
+                    <a href="https://www.instagram.com/caipi_babyland/" target="_blank"
+                        style="color: var(--white); text-decoration: none;"><i class="fab fa-instagram"></i>
+                        @caipi_babyland</a>
+                </p>
+                <div id="notaHint" style="text-align: center; margin-top: 35px;">
+                    <p style="font-size: 1rem; margin-bottom: 15px; opacity: 0.95;">¿Quieres ver todo el potencial de
+                        Caipi Babyland?</p>
+                    <button class="btn btn-primary" id="btnSegundaFase" onclick="mostrarSegundaFase()"
+                        style="background: var(--white); color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                        <i class="fas fa-layer-group"></i>
+                        Desbloquear Segunda Fase
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1764,9 +1937,10 @@
                     <div class="logo-icon">🍼</div>
                     <span>Caipi Babyland</span>
                 </a>
-                <p>Guardería infantil dedicada a crear un ambiente seguro, amoroso y estimulante donde cada niño puede crecer feliz y desarrollar su máximo potencial.</p>
+                <p>Guardería infantil dedicada a crear un ambiente seguro, amoroso y estimulante donde cada niño puede
+                    crecer feliz y desarrollar su máximo potencial.</p>
                 <div class="social-links">
-                    <a href="https://instagram.com/caipi_babyland" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/caipi_babyland/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
@@ -1805,7 +1979,7 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/15551234567" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/50768557713" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1873,16 +2047,34 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Revelar segunda fase
+        function mostrarSegundaFase() {
+            document.querySelectorAll('.phase-section').forEach(sec => {
+                sec.classList.add('revealed');
+                sec.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+            });
+            const btn = document.getElementById('btnSegundaFase');
+            if (btn) { btn.style.display = 'none'; }
+            const hint = document.getElementById('notaHint');
+            if (hint) { hint.style.display = 'none'; }
+        }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    if (target.classList.contains('phase-section') && !target.classList.contains('revealed')) {
+                        mostrarSegundaFase();
+                        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+                    } else {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
@@ -1899,4 +2091,6 @@
         });
     </script>
 </body>
+
 </html>
+
